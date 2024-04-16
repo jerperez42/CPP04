@@ -6,7 +6,7 @@
 #    By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#              #
-#    Updated: 2024/04/10 11:49:54 by jerperez         ###   ########.fr        #
+#    Updated: 2024/04/16 11:54:25 by jerperez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,12 @@ CXX = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98	
 
 SRCS	=	main.cpp\
-			ClapTrap.cpp
+			Cat.cpp\
+			Dog.cpp\
+			WrongDog.cpp\
+			WrongCat.cpp\
+			Animal.cpp\
+			WrongAnimal.cpp\
 
 OBJ_DIR	=	obj
 

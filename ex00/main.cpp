@@ -6,70 +6,113 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/10 15:58:09 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:06:43 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+#include "WrongDog.hpp"
+
 #include <iostream>
+
+int _main42(void)
+{
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+	std::cout << j->getType() << " " << std::endl;
+	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+
+	return 0;
+}
 
 int main( void )
 {
-	std::cout << std::endl << "-------DEFAULT-------" << std::endl;
-	ClapTrap	claptrap;
-	claptrap.attack("its namesake");
-
-	std::cout << std::endl << "-------EMPTY-------" << std::endl;
-	ClapTrap	zeroclap("");
-	zeroclap.attack("its namesake");
-
-	std::cout << std::endl << "-------STRING-------" << std::endl;
-	ClapTrap	strclap("S1R-L3-CL4P-TP");
-	strclap.attack("its namesake");
-
-	std::cout << std::endl << "-------COPY-------" << std::endl;
-	ClapTrap	clone(claptrap);
-	clone.attack("its namesake");
-
-	std::cout << std::endl << "-------=operator-------" << std::endl;
-	clone = strclap;
-	clone.attack("the original");
-
-	std::cout << std::endl << "-------DAMAGE-------" << std::endl;
-	ClapTrap	masotrap("M4S0-TP");
-	for (int i = 0; i < 10; i++)
+	std::cout << std::endl << "-------42-------" << std::endl << std::endl;
 	{
-		masotrap.takeDamage(i);
-		masotrap.attack("da boss (until death)");
+		_main42();
 	}
 
-	std::cout << std::endl << "-------ATTACK-------" << std::endl;
-	ClapTrap	failtrap("F41L-TP");
-	ClapTrap	oktrap("0K-TP");
-	oktrap.attack("da boss (success)");
-	failtrap.attack("");
-	ClapTrap	deadtrap("D43D-TP");
-	deadtrap.takeDamage(999);
-	deadtrap.attack("YOU SHOULD NOT SEE THIS");
-	ClapTrap	noenergy("EP0-TP");
-	for (int i = 1; i < 13; i++)
-		noenergy.attack("da boss (until exhaustion)");
+	std::cout << std::endl << "-------ANIMAL-------" << std::endl << std::endl;
+	{
+		Animal animal;
+		std::cout << animal.getType() << ": ";
+		animal.makeSound();
+		animal.setType("Chicken");
+		std::cout << animal.getType() << ": ";
+		animal.makeSound();
+		Animal clone;
+		clone = animal;
+		std::cout << clone.getType() << "(chicken clone): ";
+		clone.makeSound();
+	}
 
-	std::cout << std::endl << "-------REPAIR-------" << std::endl;
-	ClapTrap	sparatrap("SP4R4-TP");
-	sparatrap.beRepaired(0);
-	sparatrap.beRepaired(10);
-	sparatrap.takeDamage(9);
-	for (int i = 1; i < 13; i++)
-		sparatrap.beRepaired(999);
-	deadtrap.beRepaired(0);
-	deadtrap.beRepaired(10);
-	deadtrap.beRepaired(100);
-	noenergy.beRepaired(0);
-	noenergy.beRepaired(10);
-	noenergy.beRepaired(100);
+	std::cout << std::endl << "-------CAT-------" << std::endl << std::endl;
+	{
+		Cat cat;
+		std::cout << cat.getType() << ": ";
+		cat.makeSound();
+		Cat clone(cat);
+		std::cout << clone.getType() << ": ";
+		clone.makeSound();
+	}
+
+	std::cout << std::endl << "-------DOG-------" << std::endl << std::endl;
+	{
+		Dog dog;
+		std::cout << dog.getType() << ": ";
+		dog.makeSound();
+		Dog clone(dog);
+		std::cout << clone.getType() << ": ";
+		clone.makeSound();
+	}
+
+	std::cout << std::endl << "-------WRONG ANIMAL-------" << std::endl << std::endl;
+	{
+		WrongAnimal wanimal;
+		std::cout << wanimal.getType() << ": ";
+		wanimal.makeSound();
+		wanimal.setType("Chicken");
+		std::cout << wanimal.getType() << ": ";
+		wanimal.makeSound();
+		Animal wclone;
+		wclone = wanimal;
+		std::cout << wclone.getType() << "(chicken clone): ";
+		wclone.makeSound();
+	}
+
+	std::cout << std::endl << "-------WRONG CAT-------" << std::endl << std::endl;
+	{
+		WrongCat wcat;
+		std::cout << wcat.getType() << ": ";
+		wcat.makeSound();
+		WrongCat clone(wcat);
+		std::cout << clone.getType() << ": ";
+		clone.makeSound();
+	}
+
+	std::cout << std::endl << "-------WRONG DOG-------" << std::endl << std::endl;
+	{
+		WrongDog wdog;
+		std::cout << wdog.getType() << ": ";
+		wdog.makeSound();
+		WrongDog clone(wdog);
+		std::cout << clone.getType() << ": ";
+		clone.makeSound();
+	}
+
 
 	std::cout << std::endl;
+	
 	return (0);
 }
