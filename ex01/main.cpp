@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:41:49 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:49:29 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,18 @@ int main( void )
 	std::cout << std::endl << "-------42-------" << std::endl << std::endl;
 	{
 		_main42();
+	}
+
+	std::cout << std::endl << "-------Animal Array-------" << std::endl << std::endl;
+	{
+		const size_t	n = 10;
+		Animal	*animals[n];
+		for (size_t i = 0; i < n / 2; i++)
+			animals[i] = new Dog();
+		for (size_t i = n / 2; i < n; i++)
+			animals[i] = new Cat();
+		for (size_t i = 0 ; i < n; i++)
+			delete animals[i];
 	}
 
 	std::cout << std::endl << "-------BRAIN deep copy-------" << std::endl << std::endl;
