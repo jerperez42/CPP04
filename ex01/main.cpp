@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:37:24 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:41:49 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,35 +56,35 @@ int main( void )
 		std::cout << ideas[2] << " != " << ptr[2] << std::endl;
 	}
 
-	// std::cout << std::endl << "-------CAT deep copy-------" << std::endl << std::endl;
-	// {
-	// 	Cat 				animal;
-	// 	Brain 				*brain = animal.getBrain();
-	// 	std::string 		ideas[100];
-	// 	ideas[0] = "Eat";
-	// 	ideas[1] = "Sleep";
-	// 	brain->setIdeas(ideas);
-	// 	const Cat			clone(animal);
-	// 	const Brain			*cloned_brain = clone.getBrain();
-	// 	const std::string 	*cloned_ideas = cloned_brain->getIdeas();
-	// 	std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
-	// 	std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
-	// }
+	std::cout << std::endl << "-------CAT deep copy-------" << std::endl << std::endl;
+	{
+		Cat 				animal;
+		Brain 				*brain = animal.getBrain();
+		std::string 		ideas[100];
+		ideas[0] = "Eat";
+		ideas[1] = "Sleep";
+		brain->setIdeas(ideas);
+		const Cat			clone(animal);
+		const Brain			*cloned_brain = clone.getBrain();
+		const std::string 	*cloned_ideas = cloned_brain->getIdeas();
+		std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
+		std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
+	}
 
-	// std::cout << std::endl << "-------DOG deep copy-------" << std::endl << std::endl;
-	// {
-	// 	Cat 				animal;
-	// 	Brain 				*brain = animal.getBrain();
-	// 	std::string 		ideas[100];
-	// 	ideas[0] = "Eat";
-	// 	ideas[1] = "Sleep";
-	// 	brain->setIdeas(ideas);
-	// 	const Cat			clone(animal);
-	// 	const Brain			*cloned_brain = clone.getBrain();
-	// 	const std::string 	*cloned_ideas = cloned_brain->getIdeas();
-	// 	std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
-	// 	std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
-	// }
+	std::cout << std::endl << "-------DOG deep copy-------" << std::endl << std::endl;
+	{
+		Cat 				animal;
+		Brain 				*brain = animal.getBrain();
+		std::string 		ideas[100];
+		ideas[0] = "Eat";
+		ideas[1] = "Sleep";
+		brain->setIdeas(ideas);
+		const Cat			clone(animal);
+		const Brain			*cloned_brain = clone.getBrain();
+		const std::string 	*cloned_ideas = cloned_brain->getIdeas();
+		std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
+		std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
+	}
 
 	std::cout << std::endl;
 	

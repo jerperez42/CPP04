@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:27:01 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:41:24 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ Cat	&Cat::operator=(const Cat &other)
 	if (this != &other)
 	{
 		this->_type = other._type;
+		this->_brain = new Brain();
 		this->_brain->setIdeas(other._brain->getIdeas());
 	}
 	return (*this);
