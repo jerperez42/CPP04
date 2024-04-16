@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 12:06:43 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 16:37:24 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,24 +14,17 @@
 #include "Animal.hpp"
 #include "Cat.hpp"
 #include "Dog.hpp"
-
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include "WrongDog.hpp"
+#include "Brain.hpp"
 
 #include <iostream>
 
 int _main42(void)
 {
-	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
 
-	std::cout << j->getType() << " " << std::endl;
-	std::cout << i->getType() << " " << std::endl;
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	delete j;//should not create a leak
+	delete i;
 
 	return 0;
 }
@@ -43,74 +36,55 @@ int main( void )
 		_main42();
 	}
 
-	std::cout << std::endl << "-------ANIMAL-------" << std::endl << std::endl;
+	std::cout << std::endl << "-------BRAIN deep copy-------" << std::endl << std::endl;
 	{
-		Animal animal;
-		std::cout << animal.getType() << ": ";
-		animal.makeSound();
-		animal.setType("Chicken");
-		std::cout << animal.getType() << ": ";
-		animal.makeSound();
-		Animal clone;
-		clone = animal;
-		std::cout << clone.getType() << "(chicken clone): ";
-		clone.makeSound();
+		Brain				brain;
+		std::string 		ideas[100];
+		const std::string	*ptr = brain.getIdeas();
+		
+		for (int i = 0; i < 100; i++)
+		{
+			if ("" != ptr[i])
+				std::cout << "Brain: Error: Born with this idea[" << i << "]="<< ptr[i] << std::endl;
+		}
+		ideas[0] = "Eat";
+		ideas[1] = "Sleep";
+		brain.setIdeas(ideas);
+		std::cout << ideas[0] << " = " << ptr[0] << std::endl;
+		std::cout << ideas[1] << " = " << ptr[1] << std::endl;
+		ideas[2] = "Procrastinate";
+		std::cout << ideas[2] << " != " << ptr[2] << std::endl;
 	}
 
-	std::cout << std::endl << "-------CAT-------" << std::endl << std::endl;
-	{
-		Cat cat;
-		std::cout << cat.getType() << ": ";
-		cat.makeSound();
-		Cat clone(cat);
-		std::cout << clone.getType() << ": ";
-		clone.makeSound();
-	}
+	// std::cout << std::endl << "-------CAT deep copy-------" << std::endl << std::endl;
+	// {
+	// 	Cat 				animal;
+	// 	Brain 				*brain = animal.getBrain();
+	// 	std::string 		ideas[100];
+	// 	ideas[0] = "Eat";
+	// 	ideas[1] = "Sleep";
+	// 	brain->setIdeas(ideas);
+	// 	const Cat			clone(animal);
+	// 	const Brain			*cloned_brain = clone.getBrain();
+	// 	const std::string 	*cloned_ideas = cloned_brain->getIdeas();
+	// 	std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
+	// 	std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
+	// }
 
-	std::cout << std::endl << "-------DOG-------" << std::endl << std::endl;
-	{
-		Dog dog;
-		std::cout << dog.getType() << ": ";
-		dog.makeSound();
-		Dog clone(dog);
-		std::cout << clone.getType() << ": ";
-		clone.makeSound();
-	}
-
-	std::cout << std::endl << "-------WRONG ANIMAL-------" << std::endl << std::endl;
-	{
-		WrongAnimal wanimal;
-		std::cout << wanimal.getType() << ": ";
-		wanimal.makeSound();
-		wanimal.setType("Chicken");
-		std::cout << wanimal.getType() << ": ";
-		wanimal.makeSound();
-		Animal wclone;
-		wclone = wanimal;
-		std::cout << wclone.getType() << "(chicken clone): ";
-		wclone.makeSound();
-	}
-
-	std::cout << std::endl << "-------WRONG CAT-------" << std::endl << std::endl;
-	{
-		WrongCat wcat;
-		std::cout << wcat.getType() << ": ";
-		wcat.makeSound();
-		WrongCat clone(wcat);
-		std::cout << clone.getType() << ": ";
-		clone.makeSound();
-	}
-
-	std::cout << std::endl << "-------WRONG DOG-------" << std::endl << std::endl;
-	{
-		WrongDog wdog;
-		std::cout << wdog.getType() << ": ";
-		wdog.makeSound();
-		WrongDog clone(wdog);
-		std::cout << clone.getType() << ": ";
-		clone.makeSound();
-	}
-
+	// std::cout << std::endl << "-------DOG deep copy-------" << std::endl << std::endl;
+	// {
+	// 	Cat 				animal;
+	// 	Brain 				*brain = animal.getBrain();
+	// 	std::string 		ideas[100];
+	// 	ideas[0] = "Eat";
+	// 	ideas[1] = "Sleep";
+	// 	brain->setIdeas(ideas);
+	// 	const Cat			clone(animal);
+	// 	const Brain			*cloned_brain = clone.getBrain();
+	// 	const std::string 	*cloned_ideas = cloned_brain->getIdeas();
+	// 	std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
+	// 	std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
+	// }
 
 	std::cout << std::endl;
 	

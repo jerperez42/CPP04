@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:17:37 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 13:51:28 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_HPP
+# define BRAIN_HPP
 
 # include <string> 
-# include "Animal.h"
+# include "Brain.h"
 
-class	Animal
+class	Brain
 {
 	public:
-		Animal(void);
-		Animal(const Animal &a) : _type(a._type) {};
-		virtual ~Animal(void);
-		Animal			&operator=(const Animal &);
-		void			makeSound(void) const;
-		std::string		getType(void) const;
-		void			setType(const std::string&);
-	protected:
-		Animal(const std::string&);
-		std::string		_type;
+		Brain(void);
+		Brain(const Brain &);
+		~Brain(void);
+		Brain				&operator=(const Brain &);
+		std::string	const	*getIdeas(void) const;
+		void				setIdeas(const std::string*);
+	private:
+		std::string		_ideas[BRAIN_IDEA_NUM];
 };
 
 #endif

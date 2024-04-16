@@ -1,34 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Brain.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:17:37 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 12:59:27 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef BRAIN_H
+# define BRAIN_H
 
-# include <string> 
-# include "Animal.h"
-
-class	Animal
-{
-	public:
-		Animal(void);
-		Animal(const Animal &a) : _type(a._type) {};
-		virtual ~Animal(void);
-		Animal			&operator=(const Animal &);
-		void			makeSound(void) const;
-		std::string		getType(void) const;
-		void			setType(const std::string&);
-	protected:
-		Animal(const std::string&);
-		std::string		_type;
-};
+# define BRAIN_IDEA_NUM 100
 
 #endif

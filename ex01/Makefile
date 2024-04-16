@@ -6,22 +6,20 @@
 #    By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#              #
-#    Updated: 2024/04/16 11:54:25 by jerperez         ###   ########.fr        #
+#    Updated: 2024/04/16 15:34:26 by jerperez         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ex00
+NAME = ex01
 
 CXX = c++
-CPPFLAGS = -Wall -Wextra -Werror -std=c++98	
+CPPFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS	=	main.cpp\
 			Cat.cpp\
 			Dog.cpp\
-			WrongDog.cpp\
-			WrongCat.cpp\
 			Animal.cpp\
-			WrongAnimal.cpp\
+			Brain.cpp\
 
 OBJ_DIR	=	obj
 

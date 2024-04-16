@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 10:49:14 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 14:52:46 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@
 # define INFO_CPY_MSG " info: Copy Constructor Called"
 # define INFO_DFLT_MSG " info: Default Constructor Called"
 # define INFO_DESTR_MSG " info: Destructor Called"
+# define INFO_STR_MSG " info: String Contructor Called"
 
 #endif
