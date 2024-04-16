@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:41:28 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:15:59 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ Dog	&Dog::operator=(const Dog &other)
 Brain	*Dog::getBrain(void) const
 {
 	return (this->_brain);
+}
+
+void	Dog::makeSound(void)
+{
+	std::cout << DOG_SOUND << std::endl;
 }

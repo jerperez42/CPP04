@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:41:24 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:15:37 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,9 @@ Cat	&Cat::operator=(const Cat &other)
 Brain	*Cat::getBrain(void) const
 {
 	return (this->_brain);
+}
+
+void	Cat::makeSound(void)
+{
+	std::cout << CAT_SOUND << std::endl;
 }

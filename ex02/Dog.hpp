@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 10:54:29 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:27:42 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:15:49 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ class	Dog: public Animal
 		Dog(void);
 		Dog(const Dog &);
 		~Dog(void);
-		Dog		&operator=(const Dog &);
-		Brain	*getBrain(void) const;
+		Dog				&operator=(const Dog &);
+		Brain			*getBrain(void) const;
+		virtual void	makeSound(void);
 };
 
 #endif

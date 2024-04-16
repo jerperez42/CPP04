@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/09 16:23:36 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/16 16:49:29 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/16 17:19:39 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,67 +36,18 @@ int main( void )
 		_main42();
 	}
 
-	std::cout << std::endl << "-------Animal Array-------" << std::endl << std::endl;
+	std::cout << std::endl << "-------Sound-------" << std::endl << std::endl;
 	{
-		const size_t	n = 10;
-		Animal	*animals[n];
-		for (size_t i = 0; i < n / 2; i++)
-			animals[i] = new Dog();
-		for (size_t i = n / 2; i < n; i++)
-			animals[i] = new Cat();
-		for (size_t i = 0 ; i < n; i++)
-			delete animals[i];
+		Cat cat;
+		std::cout << cat.getType() << ": ";
+		cat.makeSound();
+		Dog dog;
+		std::cout << dog.getType() << ": ";
+		dog.makeSound();
 	}
 
-	std::cout << std::endl << "-------BRAIN deep copy-------" << std::endl << std::endl;
-	{
-		Brain				brain;
-		std::string 		ideas[100];
-		const std::string	*ptr = brain.getIdeas();
-		
-		for (int i = 0; i < 100; i++)
-		{
-			if ("" != ptr[i])
-				std::cout << "Brain: Error: Born with this idea[" << i << "]="<< ptr[i] << std::endl;
-		}
-		ideas[0] = "Eat";
-		ideas[1] = "Sleep";
-		brain.setIdeas(ideas);
-		std::cout << ideas[0] << " = " << ptr[0] << std::endl;
-		std::cout << ideas[1] << " = " << ptr[1] << std::endl;
-		ideas[2] = "Procrastinate";
-		std::cout << ideas[2] << " != " << ptr[2] << std::endl;
-	}
-
-	std::cout << std::endl << "-------CAT deep copy-------" << std::endl << std::endl;
-	{
-		Cat 				animal;
-		Brain 				*brain = animal.getBrain();
-		std::string 		ideas[100];
-		ideas[0] = "Eat";
-		ideas[1] = "Sleep";
-		brain->setIdeas(ideas);
-		const Cat			clone(animal);
-		const Brain			*cloned_brain = clone.getBrain();
-		const std::string 	*cloned_ideas = cloned_brain->getIdeas();
-		std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
-		std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
-	}
-
-	std::cout << std::endl << "-------DOG deep copy-------" << std::endl << std::endl;
-	{
-		Cat 				animal;
-		Brain 				*brain = animal.getBrain();
-		std::string 		ideas[100];
-		ideas[0] = "Eat";
-		ideas[1] = "Sleep";
-		brain->setIdeas(ideas);
-		const Cat			clone(animal);
-		const Brain			*cloned_brain = clone.getBrain();
-		const std::string 	*cloned_ideas = cloned_brain->getIdeas();
-		std::cout << ideas[0] << " = " << cloned_ideas[0] << std::endl;
-		std::cout << ideas[1] << " = " << cloned_ideas[1] << std::endl;
-	}
+	//This should be a compilation error (abstract class):
+	//Animal chicken;
 
 	std::cout << std::endl;
 	
