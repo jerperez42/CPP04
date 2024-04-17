@@ -1,7 +1,5 @@
-obj/Cure.o: Cure.cpp Cure.hpp AMateria.hpp ICharacter.hpp
+obj/Cure.o: Cure.cpp Cure.hpp AMateria.hpp
 
 Cure.hpp:
 
 AMateria.hpp:
-
-ICharacter.hpp:

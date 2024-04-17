@@ -6,15 +6,15 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 11:52:07 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:35:48 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-#include "ICharacter.hpp"
 #include <string>
+class ICharacter;
 
 class AMateria
 {

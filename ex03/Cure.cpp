@@ -6,13 +6,13 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 11:48:42 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:38:51 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cure.hpp"
 
-void Cure::clone(void)
+AMateria* Cure::clone(void) const
 {
-	return (new AMateria(this->_name));
+	return (new Cure());
 }
