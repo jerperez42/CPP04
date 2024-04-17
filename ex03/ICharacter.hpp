@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 11:04:22 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 11:52:39 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 # define ICHARACTER_HPP
 
 # include <string>
-# include "ICharacter.hpp"
-# include "AMateria.hpp"
+class AMateria;
 
 class ICharacter
 {
