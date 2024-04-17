@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 14:46:10 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:24:46 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,25 @@ void MateriaSource::_slotclear(void)
 			_slot[idx] = 0;
 		}
 	}
+}
+
+MateriaSource::MateriaSource(const MateriaSource& other)
+{
+	for (size_t idx = 0; idx < SOURCE_N; idx++)
+		this->_slot[idx] = 0;
+	*this = other;
+}
+
+MateriaSource&	MateriaSource::operator=(const MateriaSource &other)
+{
+	if (this != &other)
+	{
+		this->_slotclear();
+		for (size_t idx = 0; idx < SOURCE_N; idx++)
+		{
+			if (0 != other._slot[idx])
+				this->_slot[idx] = other._slot[idx]->clone();
+		}
+	}
+	return (*this);
 }

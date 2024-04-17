@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 15:54:16 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 16:15:43 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ Character::~Character(void)
 
 Character::Character(const Character& other)
 {
+	for (int idx = 0; idx < SLOT_N; idx++)
+		this->_slot[idx] = 0;
 	*this = other;
 }
 
@@ -67,7 +69,7 @@ void	Character::equip(AMateria* m)
 	{
 		if (m == this->_slot[idx])
 			return ;
-		else if (0 == this->_slot[idx])
+		else if (0 == this->_slot[idx] && -1 == available)
 			available = idx;
 	}
 	if (-1 != available)
