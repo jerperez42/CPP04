@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 14:18:18 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:46:10 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,7 @@
 
 MateriaSource::~MateriaSource(void)
 {
-	AMateria *m;
-	for (size_t i = 0; i < SOURCE_N; i++)
-	{
-		if (0 != this->_slot[i])
-		{
-			m = this->_slot[i];
-			for (size_t i = 0; i < SOURCE_N; i++)
-			{
-				if (m == this->_slot[i])
-					this->_slot[i] = 0;
-			}
-			delete m;
-		}
-	}
+	this->_slotclear();
 }
 
 MateriaSource::MateriaSource(void)
@@ -57,4 +44,24 @@ AMateria* MateriaSource::createMateria(const std::string& type)
 			return (this->_slot[i]->clone());
 	}
 	return (0);
+}
+
+void MateriaSource::_slotclear(void)
+{
+	AMateria	*m;
+
+	for (size_t idx = 0; idx < SOURCE_N; idx++)
+	{
+		if (0 != this->_slot[idx])
+		{
+			m = this->_slot[idx];
+			for (size_t i = idx; i < SOURCE_N; i++)
+			{
+				if (m == this->_slot[i])
+					this->_slot[i] = 0;
+			}
+			delete m;
+			_slot[idx] = 0;
+		}
+	}
 }

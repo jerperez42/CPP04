@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 14:41:45 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:43:16 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,8 @@ void	Character::use(int idx, ICharacter& target)
 
 void	Character::_slotclear(void)
 {
-	AMateria *m;
+	AMateria	*m;
+
 	for (int idx = 0; idx < SLOT_N; idx++)
 	{
 		if (0 != this->_slot[idx])
