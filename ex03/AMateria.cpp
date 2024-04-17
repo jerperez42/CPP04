@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 13:53:46 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 14:50:35 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,6 @@
 #include "ICharacter.hpp"
 #include "AMateria.h"
 #include <iostream>
-
-AMateria::AMateria(const std::string& type)
-{
-	this->_type = type;
-}
 
 std::string const &AMateria::getType(void) const
 {

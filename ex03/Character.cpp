@@ -6,13 +6,20 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 14:43:16 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:54:16 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 #include "AMateria.hpp"
 
+
+Character::Character(void)
+{
+	this->_name = "";
+	for (int idx = 0; idx < SLOT_N; idx++)
+		this->_slot[idx] = 0;
+}
 
 Character::Character(const std::string& name)
 {
@@ -36,6 +43,7 @@ Character	&Character::operator=(const Character &other)
 	if (this != &other)
 	{
 		this->_slotclear();
+		this->_name = other._name;
 		for (int idx = 0; idx < SLOT_N; idx++)
 		{
 			if (0 != other._slot[idx])
@@ -52,14 +60,18 @@ std::string const	&Character::getName(void) const
 
 void	Character::equip(AMateria* m)
 {
+	int available;
+
+	available = -1;
 	for (int idx = 0; idx < SLOT_N; idx++)
 	{
-		if (0 == this->_slot[idx])
-		{
-			this->_slot[idx] = m;
+		if (m == this->_slot[idx])
 			return ;
-		}
+		else if (0 == this->_slot[idx])
+			available = idx;
 	}
+	if (-1 != available)
+		this->_slot[available] = m;
 }
 
 
@@ -83,7 +95,7 @@ void	Character::_slotclear(void)
 		if (0 != this->_slot[idx])
 		{
 			m = this->_slot[idx];
-			for (int i = idx; i < SLOT_N; i++)
+			for (int i = idx + 1; i < SLOT_N; i++)
 			{
 				if (m == this->_slot[i])
 					this->_slot[i] = 0;

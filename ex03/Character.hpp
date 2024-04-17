@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 14:33:53 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:43:53 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,11 +25,12 @@ class Character: public ICharacter
 		AMateria	*_slot[SLOT_N];
 		void		_slotclear(void);
 	public:
-		Character(void) {};
+		Character(void);
 		Character(const std::string&);
 		Character(const Character&);
 		Character	&operator=(const Character&);
 		virtual ~Character(void);
+
 		virtual std::string const & getName() const;
 		virtual void equip(AMateria* m);
 		virtual void unequip(int idx);

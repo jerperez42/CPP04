@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 14:14:06 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 15:58:58 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include "Character.hpp"
 #include "Ice.hpp"
 #include "Cure.hpp"
+#include <iostream>
 
 int main(void)
 {
@@ -41,4 +42,53 @@ int main(void)
 
 	return (0);
 }
+
+// int main(void)
+// {
+// 	std::cout << "----------42----------"<< std::endl << std::endl;
+// 	_main42();
+
+// 	std::cout << "----------Character----------"<< std::endl << std::endl;
+// 	{
+// 		std::string name = "carl";
+// 		Character c(name);
+// 		AMateria* m = new Cure();
+// 		AMateria* m2 = new Cure();
+// 		AMateria* m3 = new Cure();
+// 		AMateria* m4 = new Cure();
+// 		AMateria* m5 = new Ice();
+
+// 		std::cout << name << ": my name is " << c.getName() << std::endl;
+// 		std::cout << name << ":I have nothing" << std::endl;
+// 		for (int i = -10; i < 10; i++)
+// 			c.use(i, c);
+// 		std::cout << name << ":I have cure" << std::endl;
+// 		c.equip(m);
+// 		for (int i = -10; i < 10; i++)
+// 			c.use(i, c);
+// 		std::cout << name << ":I equiped the same cure twice" << std::endl;
+// 		c.equip(m);
+// 		for (int i = -10; i < 10; i++)
+// 			c.use(i, c);
+// 		std::cout << name << ":I equiped another cure" << std::endl;
+// 		c.equip(m2);
+// 		for (int i = -10; i < 10; i++)
+// 			c.use(i, c);
+// 		std::cout << name << ":I filled my slots with Cures an Ice" << std::endl;
+// 		c.equip(m2);
+// 		c.equip(m3);
+// 		c.equip(m4);
+// 		(void)m5;
+// 		//c.equip(m5);
+// 		for (int i = -10; i < 10; i++)
+// 			c.use(i, c);
+// 		std::cout << name << "'clone :I cloned myself!" << std::endl;
+// 		Character clone(c);
+// 		for (int i = -10; i < 10; i++)
+// 			clone.use(i, clone);
+// 		std::cout << "main: deleted Ice" << std::endl;
+// 		delete m5;
+// 	}
+	
+// }
 
