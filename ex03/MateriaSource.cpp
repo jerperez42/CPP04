@@ -6,7 +6,7 @@
 /*   By: jerperez <jerperez@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 10:28:10 by jerperez          #+#    #+#             */
-/*   Updated: 2024/04/17 13:38:02 by jerperez         ###   ########.fr       */
+/*   Updated: 2024/04/17 13:57:53 by jerperez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void MateriaSource::learnMateria(AMateria* m)
 	for (size_t i = 0; i < SOURCE_N; i++)
 	{
 		if (0 == this->_slot[i])
+		{
 			this->_slot[i] = m;
+			return ;
+		}
 	}
 }
 
